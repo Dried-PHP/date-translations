@@ -1,6 +1,6 @@
 {
-    "name": "dried/date-difference",
-    "description": "Calculate difference between dates in various units",
+    "name": "dried/date-translations",
+    "description": "Raw translations for date and time",
     "type": "library",
     "license": "MIT",
     "authors": [
