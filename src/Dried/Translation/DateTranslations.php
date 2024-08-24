@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Dried\Translation;
 
+use Dried\Contracts\Translation\DateTranslationsGetter;
 use Dried\Translation\Exception\UnsupportedLocale;
 
-final class DateTranslations
+final class DateTranslations implements DateTranslationsGetter
 {
     private const SUPPORTED_LOCALES = [
         'aa' => true,

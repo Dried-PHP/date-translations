@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "dried/date-contracts": "dev-main"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.2"
