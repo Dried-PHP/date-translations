@@ -7,6 +7,7 @@ namespace Dried\Lang;
 /*
  * Authors:
  * - Quentí
+ * - Quentin PAGÈS
  */
 return [
     'year' => ':count an|:count ans',
@@ -76,8 +77,8 @@ return [
             default => 'en',
         };
 
-        // feminine for year, week, hour, minute, second
-        if (preg_match('/^[yYwWhHgGis]$/', $period)) {
+        // feminine for week, hour, minute, second
+        if (preg_match('/^[wWhHgGis]$/', $period)) {
             $ordinal .= 'a';
         }
 
