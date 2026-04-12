@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Dried\Lang;
 
+/*
+ * Authors:
+ * - Mousa Moradi mousamk@gmail.com
+ */
 return array_replace_recursive(require __DIR__.'/en.php', [
     'formats' => [
         'L' => 'OY/OM/OD',

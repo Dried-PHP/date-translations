@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Dried\Difference;
 
+use Closure;
 use Dried\Translation\DateTranslations;
 use Dried\Translation\Exception\UnsupportedLocale;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -15,6 +16,7 @@ final class DateTranslationsTest extends TestCase
     {
         self::assertSame('en', DateTranslations::forLocale('en')->locale);
         self::assertSame('aa_ER@saaho', DateTranslations::forLocale('aa_ER@saaho')->locale);
+        self::assertSame('az_Arab', DateTranslations::forLocale('az_Arab')->locale);
         self::assertSame('zh_Hans_HK', DateTranslations::forLocale('zh_Hans_HK')->locale);
     }
 
@@ -30,7 +32,7 @@ final class DateTranslationsTest extends TestCase
         $locales = DateTranslations::getSupportedLocales();
 
         self::assertContains('uz_UZ@cyrillic', $locales);
-        self::assertSame(823, \count($locales));
+        self::assertSame(824, \count($locales));
     }
 
     public function testGetTranslations(): void
@@ -209,5 +211,24 @@ final class DateTranslationsTest extends TestCase
             static fn (string $locale): array => [$locale],
             $locales,
         ));
+    }
+
+    public function testBengaliOrdinalNumbers(): void
+    {
+        $ordinal = (require __DIR__ . '/../../../src/Dried/Lang/bn.php')['ordinal'] ?? null;
+
+        self::assertInstanceOf(Closure::class, $ordinal);
+        assert($ordinal instanceof Closure);
+
+        self::assertSame('০তম', $ordinal(0));
+        self::assertSame('১ম', $ordinal(1));
+        self::assertSame('২য়', $ordinal(2));
+        self::assertSame('৪র্থ', $ordinal(4));
+        self::assertSame('৬ষ্ঠ', $ordinal(6));
+        self::assertSame('৭ম', $ordinal(7));
+        self::assertSame('১০ম', $ordinal(10));
+        self::assertSame('১১তম', $ordinal(11));
+        self::assertSame('২০তম', $ordinal(20));
+        self::assertSame('১০৫তম', $ordinal(105));
     }
 }
