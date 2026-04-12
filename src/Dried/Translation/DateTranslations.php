@@ -67,6 +67,7 @@ final class DateTranslations implements DateTranslationsGetter
         'ayc' => true,
         'ayc_PE' => true,
         'az' => true,
+        'az_Arab' => true,
         'az_AZ' => true,
         'az_Cyrl' => true,
         'az_IR' => true,

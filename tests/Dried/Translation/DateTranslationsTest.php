@@ -16,6 +16,7 @@ final class DateTranslationsTest extends TestCase
     {
         self::assertSame('en', DateTranslations::forLocale('en')->locale);
         self::assertSame('aa_ER@saaho', DateTranslations::forLocale('aa_ER@saaho')->locale);
+        self::assertSame('az_Arab', DateTranslations::forLocale('az_Arab')->locale);
         self::assertSame('zh_Hans_HK', DateTranslations::forLocale('zh_Hans_HK')->locale);
     }
 
@@ -31,7 +32,7 @@ final class DateTranslationsTest extends TestCase
         $locales = DateTranslations::getSupportedLocales();
 
         self::assertContains('uz_UZ@cyrillic', $locales);
-        self::assertSame(823, \count($locales));
+        self::assertSame(824, \count($locales));
     }
 
     public function testGetTranslations(): void
